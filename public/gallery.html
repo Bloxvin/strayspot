@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StraySpotter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Francois+One&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Francois+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+    <!-- Navigations -->
+    <nav>
+        <div class="logo">
+            <img src="resources/logo.jpeg" alt="StraySpotter logo">
+            <span>StraySpotter</span>
+        </div>
+        <button class="toggle-button" id="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#founders">Founders</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="index.html#summary">Summary</a></li>
+        </ul>
+        <!-- <div class="upload-icon">
+            <a href="#" onclick="document.getElementById('file-upload').click();">
+                <img src="resources/camera_icon.png" alt="Upload">
+            </a>
+        </div> -->
+        <!-- Add the hidden file input -->
+        <input type="file" id="file-upload" style="display: none;">
+    </nav>
+
+    <!-- Container -->
+    <div id="aesthetic">
+       <div class="container">
+            <div class="gallery-container" id="galleryGrid">
+                <!-- Gallery items will be dynamically added here -->
+            </div>
+            <button class="load-more" id="loadMoreBtn">Load More</button>
+        </div>
+    </div>
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="script2.js">
+    </script>
+
+    <script>
+        function openModal() {
+            document.getElementById('uploadModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('uploadModal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+
+
+    <script src="script.js">
+        // Add this new code for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+    
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        document.getElementById('toggle-button').addEventListener('click', function() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+            });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.forEach(nav => nav.parentElement.classList.remove('active'));
+                    link.parentElement.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+
+<!-- Java script for Upload button -->
+    <script>
+        function openModal() {
+            document.getElementById('uploadModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('uploadModal')) {
+                closeModal();
+            }
+        }
+    </script>
+    
+
+</body>
+
+
+</html>
